@@ -20,6 +20,18 @@ This project demonstrates my ability to manage IT support tickets using Jira Ser
 
 ---
 
+## Screenshots
+
+| File Name | Description |
+| :--- | :--- |
+| `01-two-tickets-created.png` | Both tickets (TIS-1 and TIS-2) in the Jira queue |
+| `02-ticket-01-resolution.png` | Resolution comment added to Ticket TIS-1 (Password Reset) |
+| `03-ticket-01-email.png` | Email sent to user with temporary password |
+| `04-ticket-02-resolution.png` | Resolution comment added to Ticket TIS-2 (Onboarding) |
+| `05-ticket-02-email.png` | Welcome email sent to the new employee |
+
+---
+
 ## Ticket 1: Password Reset Request (TIS-1)
 
 ### Scenario
@@ -33,7 +45,7 @@ This project demonstrates my ability to manage IT support tickets using Jira Ser
 | **Summary** | Password Reset Request - Mensa Otabil (HR Director) |
 | **Priority** | Low |
 | **Reporter** | Mensa Otabil |
-| **Status** | Waiting for Support |
+| **Status** | Resolved |
 
 ### Resolution Steps
 
@@ -60,12 +72,25 @@ I've reset Mensa's password and unlocked her account. She has been notified of t
 Temporary password: TechBridge@HR2025!
 ```
 
-### Screenshots
+### Email Sent to User
 
-| File Name | Description |
-| :--- | :--- |
-| `ticket-01-created.png` | Ticket TIS-1 in Jira showing description and priority |
-| `ticket-01-resolution-comment.png` | Resolution notes added to ticket |
+```
+Subject: Password Reset Completed - Mensa Otabil
+
+Hi Mensa,
+
+I've reset your password and unlocked your account.
+
+Temporary password: TechBridge@HR2025!
+You will be prompted to change it at your next login.
+
+If you need any assistance, reply to this ticket.
+
+Regards,
+TechBridge IT Support
+
+Ticket: TECHBRIDGE-001
+```
 
 ---
 
@@ -82,39 +107,55 @@ Temporary password: TechBridge@HR2025!
 | **Summary** | New Employee Onboarding - Daniel Kan (Sales Rep) |
 | **Priority** | Medium |
 | **Reporter** | Michael Boateng |
-| **Status** | Waiting for Support |
+| **Status** | Resolved |
 
 ### Subtasks Created
 
 | Subtask | Status | Description |
 | :--- | :--- | :--- |
-| TIS-3 | Open | Provision laptop (hardware + OS) |
-| TIS-4 | Open | Join laptop to domain (ROD.LOCAL) |
-| TIS-5 | Open | Create AD user account: d.kan |
+| TIS-3 | Done | Provision laptop (hardware + OS) |
+| TIS-4 | Done | Join laptop to domain (ROD.LOCAL) |
+| TIS-5 | Done | Create AD user account: d.kan |
 
-### Resolution Steps (Planned)
+### Resolution Steps
 
-1. **Provision laptop**
-   - Install Windows 10 Enterprise
-   - Configure basic settings
+1. **Provisioned laptop**
+   - Installed Windows 10 Enterprise
+   - Configured basic settings
 
-2. **Join laptop to domain**
-   - Join `ROD.LOCAL`
-   - Test authentication
+2. **Joined laptop to domain**
+   - Joined `ROD.LOCAL`
+   - Tested authentication
 
-3. **Create AD user account**
+3. **Created AD user account**
    - Username: `d.kan`
    - Department: Sales
    - Security group membership
 
-4. **Configure access**
+4. **Configured access**
    - Shared Drive (S:)
    - Sales Team distribution group
    - HubSpot CRM access
 
-5. **Send Welcome Email**
+5. **Sent Welcome Email**
 
-### Welcome Email Draft
+### Resolution Notes
+
+```
+Onboarding for Daniel Kan completed.
+
+Checklist:
+- [x] Laptop provisioned
+- [x] Domain joined
+- [x] AD user created: d.kan
+- [x] Security groups assigned
+- [x] Shared drive access granted
+- [x] Welcome email sent
+
+Status: Completed. Daniel is ready for Day 1.
+```
+
+### Welcome Email Sent
 
 ```
 Subject: Welcome to TechBridge, Daniel Kan
@@ -141,13 +182,6 @@ Best,
 TechBridge IT Support
 ```
 
-### Screenshots
-
-| File Name | Description |
-| :--- | :--- |
-| `ticket-02-created.png` | Ticket TIS-2 in Jira with subtasks |
-| `ticket-02-welcome-email.png` | Welcome email drafted for new employee |
-
 ---
 
 ## SLA Tracking
@@ -168,6 +202,7 @@ TechBridge IT Support
 - **Subtasks** are essential for complex, multi-step requests like onboarding
 - **Documentation** of resolution steps is critical for knowledge sharing
 - **Communication** with the requester is part of the ticket lifecycle
+- **Email confirmations** provide proof of resolution to users
 
 ---
 
