@@ -118,18 +118,28 @@ ROD.LOCAL
 
 ---
 
-## Verification Steps Performed
+## GPO Verification: Restrict Control Panel
 
-| Test | Result |
-| :--- | :--- |
-| Domain Controller Status | ✅ Healthy |
-| DNS Resolution | ✅ Working |
-| ADUC shows OU Structure | ✅ Verified |
-| User Account Creation | ✅ Successful |
-| Security Group Membership | ✅ Verified |
-| GPO Application | ✅ Applied to Europe OU |
-| Client Domain Join | ✅ Successful |
-| Client DNS Resolution | ✅ Verified |
+To confirm that the Restrict Control Panel GPO was successfully applied, I logged in as a domain user (`ROD\m.otabil`) and attempted to open Control Panel.
+
+### Step 1: User Login
+> **Screenshot:** `15-user-login.png`
+> 
+> I logged in as `ROD\m.otabil`, a standard domain user in the HR department. This confirms the user account is active and the domain authentication is working.
+
+### Step 2: Attempt to Open Control Panel
+> **Screenshot:** `16-control-panel-attempt.png`
+> 
+> From the Start menu, I clicked on Control Panel. This is the action a normal user would take to access system settings.
+
+### Step 3: Access Denied — GPO Enforced
+> **Screenshot:** `17-control-panel-blocked.png`
+> 
+> Instead of opening Control Panel, the user received this error message:
+> 
+> > *"This operation has been cancelled due to restrictions in effect on this computer. Please contact your system administrator."*
+> 
+> **This confirms that the Restrict Control Panel GPO is successfully enforced.** The policy is working as intended — standard users cannot access Control Panel, protecting the system from unauthorized changes.
 
 ---
 
@@ -147,9 +157,13 @@ ROD.LOCAL
 | `08-gpo-password-policy.png` | Password Policy GPO settings |
 | `09-gpo-workstation-security.png` | Workstation Security GPO settings |
 | `10-gpo-drive-mapping.png` | Drive Mapping GPO configuration |
-| `11-client-domain-join.png` | Windows 10 joining ROD.LOCAL domain |
-| `12-client-system-properties.png` | Windows 10 showing `RodSec.rod.local` |
-| `13-aduc-client-verified.png` | ADUC showing RODSEC computer object |
+| `11-gpo-restrict-control-policy.png` | Restrict Control Panel GPO settings |
+| `12-client-domain-join.png` | Windows 10 joining ROD.LOCAL domain |
+| `13-client-system-properties.png` | Windows 10 showing `RodSec.rod.local` |
+| `14-aduc-client-verified.png` | ADUC showing RODSEC computer object |
+| `15-user-login.png` | Domain user (ROD\m.otabil) logging into Windows 10 client |
+| `16-control-panel-attempt.png` | User attempting to open Control Panel from the Start menu |
+| `17-control-panel-blocked.png` | Error message: "This operation has been cancelled due to restrictions" — GPO successfully enforced |
 
 ---
 
@@ -172,6 +186,7 @@ ROD.LOCAL
 - Proper OU structure is critical for scalable management
 - DNS configuration is essential for domain join success
 - Security groups simplify permission management
+- **Verifying GPO enforcement is just as important as configuring it**
 
 ---
 
