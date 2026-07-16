@@ -42,9 +42,9 @@ I am an IT Support professional with a strong foundation in Software Engineering
 - Troubleshooting & Problem Solving
 
 ## Contact
-- [LinkedIn](https://linkedin.com/in/your-profile)
-- [GitHub](https://github.com/yourusername)
-- [Email](mailto:youremail@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/rodrigue-soyang)
+- [GitHub](https://github.com/rOd5610)
+- [Email](mailto:snrodrigue@gmail.com)
 
 ## Portfolio Highlights
 
