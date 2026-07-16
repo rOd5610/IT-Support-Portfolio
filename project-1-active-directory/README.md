@@ -55,17 +55,6 @@ When I first set up the domain controller, I used the **NAT** network adapter in
 
 ---
 
-## Network Configuration Screenshots
-
-| File Name | Description |
-| :--- | :--- |
-| `dc-network-adapter-settings.png` | Domain controller VirtualBox adapter settings (Host-Only) |
-| `client-network-adapter-settings.png` | Client VM VirtualBox adapter settings (Host-Only) |
-| `dc-static-ip.png` | Domain controller static IP configuration (`192.168.56.102`) |
-| `client-dns-settings.png` | Client DNS pointing to domain controller (`192.168.56.102`) |
-
----
-
 ## Organisational Unit (OU) Structure
 
 ```
@@ -165,17 +154,17 @@ ROD.LOCAL
 To confirm that the Restrict Control Panel GPO was successfully applied, I logged in as a domain user (`ROD\m.otabil`) and attempted to open Control Panel.
 
 ### Step 1: User Login
-> **Screenshot:** `15-user-login.png`
+> **Screenshot:** [15-user-login.jpg](screenshots/15-user-login.jpg)
 > 
 > I logged in as `ROD\m.otabil`, a standard domain user in the HR department. This confirms the user account is active and the domain authentication is working.
 
 ### Step 2: Attempt to Open Control Panel
-> **Screenshot:** `16-control-panel-attempt.png`
+> **Screenshot:** [16-control-panel-attempt.jpg](screenshots/16-control-panel-attempt.jpg)
 > 
 > From the Start menu, I clicked on Control Panel. This is the action a normal user would take to access system settings.
 
 ### Step 3: Access Denied — GPO Enforced
-> **Screenshot:** `17-control-panel-blocked.png`
+> **Screenshot:** [17-control-panel-blocked.jpg](screenshots/17-control-panel-blocked.jpg)
 > 
 > Instead of opening Control Panel, the user received this error message:
 > 
@@ -190,35 +179,35 @@ To confirm that the Restrict Control Panel GPO was successfully applied, I logge
 ### Network Configuration
 | File Name | Description |
 | :--- | :--- |
-| `dc-network-adapter-settings.png` | Domain controller VirtualBox adapter settings (Host-Only) |
-| `client-network-adapter-settings.png` | Client VM VirtualBox adapter settings (Host-Only) |
-| `dc-static-ip.png` | Domain controller static IP configuration (`192.168.56.102`) |
-| `client-dns-settings.png` | Client DNS pointing to domain controller (`192.168.56.102`) |
+| [dc-network-adapter-settings.jpg](screenshots/dc-network-adapter-settings.jpg) | Domain controller VirtualBox adapter settings (Host-Only) |
+| [client-network-adapter-settings.jpg](screenshots/client-network-adapter-settings.jpg) | Client VM VirtualBox adapter settings (Host-Only) |
+| [dc-static-ip.jpg](screenshots/dc-static-ip.jpg) | Domain controller static IP configuration (`192.168.56.102`) |
+| [client-dns-settings.jpg](screenshots/client-dns-settings.jpg) | Client DNS pointing to domain controller (`192.168.56.102`) |
 
 ### Active Directory Setup
 | File Name | Description |
 | :--- | :--- |
-| `01-vm-running.png` | VirtualBox showing DC01-TechBridge running |
-| `02-server-manager-welcome.png` | Server Manager Dashboard after initial setup |
-| `03-add-roles-and-features.png` | Adding AD DS and DNS Server roles |
-| `04-ad-ds-role-selected.png` | AD DS role selected in installation wizard |
-| `05-domain-controller-promotion.png` | Promoting server to domain controller (ROD.LOCAL) |
-| `06-aduc-ou-structure.png` | Active Directory Users and Computers showing OU tree |
-| `07-group-properties.png` | #HR_Department group properties with members |
-| `08-gpo-password-policy.png` | Password Policy GPO settings |
-| `09-gpo-workstation-security.png` | Workstation Security GPO settings |
-| `10-gpo-drive-mapping.png` | Drive Mapping GPO configuration |
-| `11-gpo-restrict-control-policy.png` | Restrict Control Panel GPO settings |
-| `12-client-domain-join.png` | Windows 10 joining ROD.LOCAL domain |
-| `13-client-system-properties.png` | Windows 10 showing `RodSec.rod.local` |
-| `14-aduc-client-verified.png` | ADUC showing RODSEC computer object |
+| [01-vm-running.jpg](screenshots/01-vm-running.jpg) | VirtualBox showing DC01-TechBridge running |
+| [02-server-manager-welcome.jpg](screenshots/02-server-manager-welcome.jpg) | Server Manager Dashboard after initial setup |
+| [03-add-roles-and-features.jpg](screenshots/03-add-roles-and-features.jpg) | Adding AD DS and DNS Server roles |
+| [04-ad-ds-role-selected.jpg](screenshots/04-ad-ds-role-selected.jpg) | AD DS role selected in installation wizard |
+| [05-domain-controller-promotion.jpg](screenshots/05-domain-controller-promotion.jpg) | Promoting server to domain controller (ROD.LOCAL) |
+| [06-aduc-ou-structure.jpg](screenshots/06-aduc-ou-structure.jpg) | Active Directory Users and Computers showing OU tree |
+| [07-group-properties.jpg](screenshots/07-group-properties.jpg) | #HR_Department group properties with members |
+| [08-gpo-password-policy.jpg](screenshots/08-gpo-password-policy.jpg) | Password Policy GPO settings |
+| [09-gpo-workstation-security.jpg](screenshots/09-gpo-workstation-security.jpg) | Workstation Security GPO settings |
+| [10-gpo-drive-mapping.jpg](screenshots/10-gpo-drive-mapping.jpg) | Drive Mapping GPO configuration |
+| [11-gpo-restrict-control-policy.jpg](screenshots/11-gpo-restrict-control-policy.jpg) | Restrict Control Panel GPO settings |
+| [12-client-domain-join.jpg](screenshots/12-client-domain-join.jpg) | Windows 10 joining ROD.LOCAL domain |
+| [13-client-system-properties.jpg](screenshots/13-client-system-properties.jpg) | Windows 10 showing `RodSec.rod.local` |
+| [14-aduc-client-verified.jpg](screenshots/14-aduc-client-verified.jpg) | ADUC showing RODSEC computer object |
 
 ### GPO Verification
 | File Name | Description |
 | :--- | :--- |
-| `15-user-login.png` | Domain user (ROD\m.otabil) logging into Windows 10 client |
-| `16-control-panel-attempt.png` | User attempting to open Control Panel from the Start menu |
-| `17-control-panel-blocked.png` | Error message: "This operation has been cancelled due to restrictions" — GPO successfully enforced |
+| [15-user-login.jpg](screenshots/15-user-login.jpg) | Domain user (ROD\m.otabil) logging into Windows 10 client |
+| [16-control-panel-attempt.jpg](screenshots/16-control-panel-attempt.jpg) | User attempting to open Control Panel from the Start menu |
+| [17-control-panel-blocked.jpg](screenshots/17-control-panel-blocked.jpg) | Error message: "This operation has been cancelled due to restrictions" — GPO successfully enforced |
 
 ---
 
