@@ -19,8 +19,50 @@ I built a complete Active Directory domain for a fictional company called **Tech
 | Server Name | DC01-TechBridge |
 | Domain | ROD.LOCAL |
 | Forest Functional Level | Windows Server 2025 |
-| IP Address | 10.0.2.15 (NAT) |
+| IP Address | 192.168.56.102 (Host-Only Adapter) |
 | Virtualization Platform | Oracle VirtualBox |
+
+---
+
+## Network Configuration & Troubleshooting
+
+### Initial Issue
+When I first set up the domain controller, I used the **NAT** network adapter in VirtualBox. The client VM (Windows 10) was also on NAT. While both VMs could access the internet, they could not communicate with each other — the client could not ping the domain controller, and domain join attempts failed.
+
+### Root Cause
+- The NAT adapter in VirtualBox creates an isolated network that does not allow communication between VMs by default.
+- For a domain controller and client to communicate, they need to be on the **same subnet** so the client can resolve the domain controller's IP address via DNS.
+
+### Resolution
+1. **Changed the network adapter for both VMs to Host-Only Adapter**
+   - This places both VMs on the same virtual network (`192.168.56.0/24`)
+   - The domain controller was assigned `192.168.56.102`
+   - The client VM was assigned an IP in the same subnet (e.g., `192.168.56.x`)
+
+2. **Configured static IP on the Domain Controller**
+   - IP Address: `192.168.56.102`
+   - Subnet Mask: `255.255.255.0`
+   - Preferred DNS: `127.0.0.1` (self)
+
+3. **Configured DNS on the Client VM**
+   - Preferred DNS: `192.168.56.102` (pointing to the DC)
+   - This allowed the client to resolve `ROD.LOCAL` and locate the domain controller
+
+### Verification
+- The client successfully joined the domain `ROD.LOCAL`
+- The client could ping `192.168.56.102` and resolve `ROD.LOCAL`
+- ADUC showed the client computer object (`RODSEC`) in the Computers OU
+
+---
+
+## Network Configuration Screenshots
+
+| File Name | Description |
+| :--- | :--- |
+| `dc-network-adapter-settings.png` | Domain controller VirtualBox adapter settings (Host-Only) |
+| `client-network-adapter-settings.png` | Client VM VirtualBox adapter settings (Host-Only) |
+| `dc-static-ip.png` | Domain controller static IP configuration (`192.168.56.102`) |
+| `client-dns-settings.png` | Client DNS pointing to domain controller (`192.168.56.102`) |
 
 ---
 
@@ -145,6 +187,15 @@ To confirm that the Restrict Control Panel GPO was successfully applied, I logge
 
 ## Screenshots
 
+### Network Configuration
+| File Name | Description |
+| :--- | :--- |
+| `dc-network-adapter-settings.png` | Domain controller VirtualBox adapter settings (Host-Only) |
+| `client-network-adapter-settings.png` | Client VM VirtualBox adapter settings (Host-Only) |
+| `dc-static-ip.png` | Domain controller static IP configuration (`192.168.56.102`) |
+| `client-dns-settings.png` | Client DNS pointing to domain controller (`192.168.56.102`) |
+
+### Active Directory Setup
 | File Name | Description |
 | :--- | :--- |
 | `01-vm-running.png` | VirtualBox showing DC01-TechBridge running |
@@ -161,6 +212,10 @@ To confirm that the Restrict Control Panel GPO was successfully applied, I logge
 | `12-client-domain-join.png` | Windows 10 joining ROD.LOCAL domain |
 | `13-client-system-properties.png` | Windows 10 showing `RodSec.rod.local` |
 | `14-aduc-client-verified.png` | ADUC showing RODSEC computer object |
+
+### GPO Verification
+| File Name | Description |
+| :--- | :--- |
 | `15-user-login.png` | Domain user (ROD\m.otabil) logging into Windows 10 client |
 | `16-control-panel-attempt.png` | User attempting to open Control Panel from the Start menu |
 | `17-control-panel-blocked.png` | Error message: "This operation has been cancelled due to restrictions" — GPO successfully enforced |
@@ -172,6 +227,10 @@ To confirm that the Restrict Control Panel GPO was successfully applied, I logge
 ### Issue: Client Could Not Resolve Domain
 - **Cause:** DNS not pointing to domain controller
 - **Resolution:** Set preferred DNS to `192.168.56.102` (DC01 IP)
+
+### Issue: VMs Could Not Communicate (NAT Adapter)
+- **Cause:** NAT adapter in VirtualBox creates an isolated network that does not allow VM-to-VM communication
+- **Resolution:** Changed both VMs to **Host-Only Adapter** and assigned static IP addresses on the same subnet (`192.168.56.0/24`)
 
 ### Issue: GPO Not Applying to Users
 - **Cause:** GPO linked at domain level, not OU level
@@ -186,6 +245,7 @@ To confirm that the Restrict Control Panel GPO was successfully applied, I logge
 - Proper OU structure is critical for scalable management
 - DNS configuration is essential for domain join success
 - Security groups simplify permission management
+- **Network configuration (Host-Only vs. NAT) is critical for VM-to-VM communication**
 - **Verifying GPO enforcement is just as important as configuring it**
 
 ---
