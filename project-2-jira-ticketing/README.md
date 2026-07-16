@@ -24,11 +24,11 @@ This project demonstrates my ability to manage IT support tickets using Jira Ser
 
 | File Name | Description |
 | :--- | :--- |
-| `01-two-tickets-created.png` | Both tickets (TIS-1 and TIS-2) in the Jira queue |
-| `02-ticket-01-resolution.png` | Resolution comment added to Ticket TIS-1 (Password Reset) |
-| `03-ticket-01-email.png` | Email sent to user with temporary password |
-| `04-ticket-02-resolution.png` | Resolution comment added to Ticket TIS-2 (Onboarding) |
-| `05-ticket-02-email.png` | Welcome email sent to the new employee |
+| [01-two-tickets-created.jpg](screenshots/01-two-tickets-created.jpg) | Both tickets (TIS-1 and TIS-2) in the Jira queue |
+| [02-ticket-01-resolution.jpg](screenshots/02-ticket-01-resolution.jpg) | Resolution comment added to Ticket TIS-1 (Password Reset) |
+| [03-ticket-01-email.jpg](screenshots/03-ticket-01-email.jpg) | Email sent to user with temporary password |
+| [04-ticket-02-resolution.jpg](screenshots/04-ticket-02-resolution.jpg) | Resolution comment added to Ticket TIS-2 (Onboarding) |
+| [05-ticket-02-email.jpg](screenshots/05-ticket-02-email.jpg) | Welcome email sent to the new employee |
 
 ---
 
