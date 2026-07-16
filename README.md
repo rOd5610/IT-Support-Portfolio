@@ -5,28 +5,23 @@ I am an IT Support professional with hands-on experience in identity management,
 
 ## Projects
 
-### 1. Active Directory Home Lab
-- Built a fully functional domain (`ROD.LOCAL`) on Windows Server 2025
-- Created department-based OUs (Accounting, HR, IT)
-- Configured Group Policy Objects for password policies, workstation security, and drive mapping
-- Joined a Windows 10 client to the domain
-- **Key Skills:** AD DS, GPOs, PowerShell, User/Group Management
-
-### 2. Jira Service Management Ticketing Lab
-- Configured a Jira Service Management project using the IT Service Desk template
-- Simulated the complete lifecycle of two realistic support tickets:
-  - **Ticket 1:** Password reset request (user administration)
-  - **Ticket 2:** New employee onboarding (multi-step project coordination)
-- Documented resolution steps, communication, and resolution notes
-- **Key Skills:** ITSM, Ticketing Workflows, Customer Communication, Documentation
+| Project | Description | Link |
+| :--- | :--- | :--- |
+| **Active Directory Home Lab** | Complete domain setup (ROD.LOCAL) with OUs, GPOs, and domain-joined Windows 10 client | [View Project](project-1-active-directory/README.md) |
+| **Jira Service Management** | IT support ticketing lab with 2 resolved tickets (password reset + employee onboarding) | [View Project](project-2-jira-ticketing/README.md) |
 
 ## Tools & Technologies
 - Windows Server 2025
 - Active Directory Domain Services
-- Jira Service Management (Cloud)
-- VMware / VirtualBox
-- Windows 10
+- Jira Service Management
+- PowerShell
+- VirtualBox
+- Windows 10 Enterprise
 
 ## Contact
 - [LinkedIn](https://linkedin.com/in/your-profile)
-- [Email](mailto:youremail@gmail.com)
+- [GitHub](https://github.com/yourusername)
+
+## Certifications (In Progress)
+- CompTIA A+
+- Azure Fundamentals (AZ-900)
